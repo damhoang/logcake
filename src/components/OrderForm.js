@@ -158,30 +158,36 @@ export default function OrderForm() {
       pickup_date: `${pickupDate}`,
       order: `Log Cake: ${quantity}, Order Total $${total}`,
     };
-    emailjs.init("dleTTqZMgjwp5YeZO");
-    emailjs.send("service_ao9wftm", "template_2nahi7v", templatePrams).then(
-      (result) => {
-        console.log("Your order have been sent to Hội Phụ Huynh (PTA)");
-        // clearForm();
-        // alert("Your order have been sent to Hội Phụ Huynh (PTA)");
-        // // window.location.reload(); //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
-        // setSnackbar({
-        //   open: true,
-        //   message: "Your order have been sent to Hội Phụ Huynh (PTA)!",
-        //   severity: "success",
-        // });
-        // window.location.assign("/");
-      },
-      (error) => {
-        console.log(error.text);
-        // setSnackbar({
-        //   open: true,
-        //   message:
-        //     "We have encountered error sending your order to Hội Phụ Huynh (PTA)!",
-        //   severity: "error",
-        // });
-      }
-    );
+    emailjs.init(process.env.REACT_APP_PUBLIC_KEY);
+    emailjs
+      .send(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        templatePrams
+      )
+      .then(
+        (result) => {
+          console.log("Your order have been sent to Hội Phụ Huynh (PTA)");
+          // clearForm();
+          // alert("Your order have been sent to Hội Phụ Huynh (PTA)");
+          // // window.location.reload(); //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
+          // setSnackbar({
+          //   open: true,
+          //   message: "Your order have been sent to Hội Phụ Huynh (PTA)!",
+          //   severity: "success",
+          // });
+          // window.location.assign("/");
+        },
+        (error) => {
+          console.log(error.text);
+          // setSnackbar({
+          //   open: true,
+          //   message:
+          //     "We have encountered error sending your order to Hội Phụ Huynh (PTA)!",
+          //   severity: "error",
+          // });
+        }
+      );
   };
 
   return (

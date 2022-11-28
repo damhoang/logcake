@@ -14,13 +14,15 @@ function App() {
       name: "Bánh LOG CAKE, vị MOCHA",
       description: ``,
       price: 45,
+      price2: 45,
     },
     {
       id: 2,
       image: "/poinsettia.PNG",
       name: "POINSETTIA",
       description: ``,
-      price: 25,
+      price: 35,
+      price2: 15,
     },
   ];
 

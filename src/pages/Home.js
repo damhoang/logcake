@@ -80,9 +80,9 @@ export default function Home(props) {
               POINSETTIA
             </Typography>
             <Typography variant="body1" gutterBottom>
-              • Giá: $25/cái <br />• Ngoài bánh ra, hoa POINSETTIA cũng sẽ được
-              bán tại cuối nhà thờ vào Chúa Nhật, ngày 18 tháng 12 trước & sau
-              các thánh lễ.
+              • Giá: $35/Chậu Lớn, $15/Chậu Nhỏ <br />• Ngoài bánh ra, hoa
+              POINSETTIA cũng sẽ được bán tại cuối nhà thờ vào Chúa Nhật, ngày
+              18 tháng 12 trước & sau các thánh lễ.
             </Typography>
             <Typography variant="h5" color="red">
               LOG CAKE, MOCHA FLAVOR (image attached)
@@ -103,8 +103,9 @@ export default function Home(props) {
               POINSETTIA
             </Typography>
             <Typography variant="body1" gutterBottom>
-              • Price: $25/each <br />• We also have POINSETTIA sales in front
-              of church’s entrances on Sunday 12/18 before and after masses.
+              • Price: $35/each large, $15/each small <br />• We also have
+              POINSETTIA sales in front of church’s entrances on Sunday 12/18
+              before and after masses.
             </Typography>
             <Typography variant="body1" gutterBottom>
               Click to order online
@@ -125,6 +126,7 @@ export default function Home(props) {
                   name={cake.name}
                   description={cake.description}
                   price={cake.price}
+                  price2={cake.price2}
                 />
               </Grid>
             );

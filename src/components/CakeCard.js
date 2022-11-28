@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) =>
 
 export default function CakeCard(props) {
   const classes = useStyles();
-  const { image, name, description, price } = props;
+  const { image, name, description, price, price2 } = props;
   return (
     <React.Fragment>
       <Box>
@@ -36,17 +36,32 @@ export default function CakeCard(props) {
                 <Typography variant="body1">{description}</Typography>
               </Grid>
               <Grid item xs={12} md={12}>
-                <Typography variant="body1">Giá (Price) ${price}</Typography>
+                {name !== "POINSETTIA" ? (
+                  <Typography variant="body1">Giá (Price) ${price}</Typography>
+                ) : (
+                  <>
+                    <Typography variant="body1">
+                      Chậu Lớn (Large) ${price}
+                    </Typography>
+                    <Typography variant="body1">
+                      Chậu Nhỏ (Small) ${price2}
+                    </Typography>
+                  </>
+                )}
               </Grid>
             </Grid>
           </CardContent>
           <CardActions>
-            <Button component={Link} to="/order">
-              Đặt Bánh (Order Online)
-            </Button>
-            <Button component={Link} to="/contact">
-              Liên Lạc (Contact Us)
-            </Button>
+            {name !== "POINSETTIA" && (
+              <Button component={Link} to="/order">
+                Đặt Bánh (Order Online)
+              </Button>
+            )}
+            {name !== "POINSETTIA" && (
+              <Button component={Link} to="/contact">
+                Liên Lạc (Contact Us)
+              </Button>
+            )}
           </CardActions>
         </Card>
       </Box>
