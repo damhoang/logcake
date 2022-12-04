@@ -117,6 +117,15 @@ export default function OrderForm() {
         "Access-Control-Allow-Origin": "*",
       },
     };
+    const templatePrams = {
+      from_name: "Hội Phụ Huynh (PTA)",
+      name: `${name}`,
+      qty: `${quantity}`,
+      phone: `${phone}`,
+      email: `${email}`,
+      date: `${pickupDate}`,
+    };
+
     try {
       const response = await api.post(
         "/damhoang/google_sheets/YSdUjugxkTozkEYf?tabId=Sheet1",
@@ -140,6 +149,22 @@ export default function OrderForm() {
         message: "Your order have been sent to Hội Phụ Huynh (PTA)!",
         severity: "success",
       });
+      emailjs.init(process.env.REACT_APP_PUBLIC_KEY);
+      emailjs
+        .send(
+          process.env.REACT_APP_SERVICE_ID,
+          process.env.REACT_APP_TEMPLATE_ID,
+          templatePrams
+        )
+        .then(
+          (result) => {
+            console.log("Your order have been sent to Hội Phụ Huynh (PTA)");
+            // window.location.assign("/");
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
     } catch (err) {
       console.log(err);
       setSnackbar({
@@ -149,45 +174,6 @@ export default function OrderForm() {
         severity: "error",
       });
     }
-
-    const templatePrams = {
-      from_name: "Hội Phụ Huynh (PTA)",
-      to_name: `${name}`,
-      phone: `${phone}`,
-      email: `${email}`,
-      pickup_date: `${pickupDate}`,
-      order: `Log Cake: ${quantity}, Order Total $${total}`,
-    };
-    emailjs.init(process.env.REACT_APP_PUBLIC_KEY);
-    emailjs
-      .send(
-        process.env.REACT_APP_SERVICE_ID,
-        process.env.REACT_APP_TEMPLATE_ID,
-        templatePrams
-      )
-      .then(
-        (result) => {
-          console.log("Your order have been sent to Hội Phụ Huynh (PTA)");
-          // clearForm();
-          // alert("Your order have been sent to Hội Phụ Huynh (PTA)");
-          // // window.location.reload(); //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
-          // setSnackbar({
-          //   open: true,
-          //   message: "Your order have been sent to Hội Phụ Huynh (PTA)!",
-          //   severity: "success",
-          // });
-          // window.location.assign("/");
-        },
-        (error) => {
-          console.log(error.text);
-          // setSnackbar({
-          //   open: true,
-          //   message:
-          //     "We have encountered error sending your order to Hội Phụ Huynh (PTA)!",
-          //   severity: "error",
-          // });
-        }
-      );
   };
 
   return (
