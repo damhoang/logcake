@@ -26,14 +26,14 @@ const useStyles = makeStyles((theme) =>
 );
 
 const pickupDates = [
-  {
-    name: "Sunday 12/11/2022 (8:00 AM - 2:00 PM)",
-    value: "Sunday 12/11/2022 (8:00 AM - 2:00 PM)",
-  },
-  {
-    name: "Sunday 12/18/2022 (8:00 AM - 2:00 PM)",
-    value: "Sunday 12/18/2022 (8:00 AM - 2:00 PM)",
-  },
+  // {
+  //   name: "Sunday 12/11/2022 (8:00 AM - 2:00 PM)",
+  //   value: "Sunday 12/11/2022 (8:00 AM - 2:00 PM)",
+  // },
+  // {
+  //   name: "Sunday 12/18/2022 (8:00 AM - 2:00 PM)",
+  //   value: "Sunday 12/18/2022 (8:00 AM - 2:00 PM)",
+  // },
   {
     name: "Friday 12/23/2022 (5:00 PM - 8:00 PM)",
     value: "Friday 12/23/2022 (5:00 PM - 8:00 PM)",
